@@ -1,4 +1,43 @@
-## 1. Downloading CheXpert dataset and preparing its file structure
+## 1. Environment Setup
+
+Before starting with the dataset preparation or running any scripts, make sure to set up the project environment.
+
+1. **Create the Conda environment:**
+   Ensure that you have Conda installed (via Anaconda or Miniconda). Then, run the following command to create the environment:
+   ```bash
+   conda env create -f environment.yml
+   ```
+
+2. **Activate the environment:**
+   Once the environment is created, activate it with:
+   ```bash
+   conda activate xray_classification
+   ```
+
+3. **Customize the environment name (optional):**
+   By default, the environment is named `xray_classification`, as defined in the `environment.yml` file. If you prefer a different name, you can edit the `name` field in the file before running the environment creation command. For example:
+   ```yaml
+   name: your_custom_name
+   ```
+   After editing, run:
+   ```bash
+   conda env create -f environment.yml
+   conda activate your_custom_name
+   ```
+
+4. **Verify the installation:**
+   To ensure all dependencies were installed correctly, you can list the installed packages:
+   ```bash
+   conda list
+   ```
+   Additionally, confirm that the PyTorch and related libraries (e.g., `torch`, `torchvision`, `torchaudio`) are working as expected:
+   ```bash
+   python -c "import torch; print(torch.__version__)"
+   ```
+
+---
+
+## 2. Downloading CheXpert dataset and preparing its file structure
 
 - Download the dataset from the official website. [LINK](https://stanfordaimi.azurewebsites.net/datasets/8cbd9ed4-2eb9-4565-affc-111cf4f7ebe2)
 - Unzip all the files listed below:
@@ -37,3 +76,22 @@
 		- `CheXpert-v1.0 batch 3 (train 2).zip`
 		- `CheXpert-v1.0 batch 4 (train 3).zip`
 		- `README.md`(optional)
+
+## 3. To-Do in README
+
+-  **Code structure and module descriptions:** 
+
+	Include a detailed explanation of the project's folder structure, code modules, and naming conventions used throughout the project.
+- **Insights from exploratory data analysis (EDA):**
+  
+	Summarize key findings from EDA of the CheXpert dataset, particularly those that influenced decisions for splitting the dataset into training and testing sets. Note: the validation set is provided separately in the CheXpert dataset.
+- **Preparing CSV files for training, testing, and validation:** 
+  
+	Provide a step-by-step guide on how the dataset's CSV files (`train.csv`, `valid.csv`) are prepared, and how the dataset is split into training and testing sets. This should also cover examples of resulting CSV structure or content.
+- **Model training, testing, and validation using provided CLI:** 
+  
+  	Command-line example(s) for running the training, testing and validation.
+- **Predicting image classes using provided CLI and both trained and validated model:**
+  
+  	Command-line example(s) for running the prediction
+  
